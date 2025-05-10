@@ -11,13 +11,15 @@ int main(){
 		//printf("%d\n",i);
 		primes[i] = i;
 	}
-	for(int i=2;i<=ceil(range/2);i++) { //for every valid divisor:
+	for(int i=2;(int) i<=ceil(range/2);i++) { //for every valid divisor:
 		for(int j=0;j<range;j++){ //check all [] against it
 			if(fmod(primes[j],i)==0.0 && primes[j]!=i){
+				//printf("Removing %d\n",primes[j]);
 				for(int k=j+1; k<range;k++) {
 					primes[k-1] = primes[k];
 				}
 				length--;
+				primes[range-1] = -1;
 			}
 		}	
 	}
